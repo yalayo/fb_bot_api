@@ -31,7 +31,6 @@ resource "aws_api_gateway_method_response" "response_200" {
   status_code = "200"
 }
 
-
 resource "aws_api_gateway_method_settings" "s" {
   rest_api_id = aws_api_gateway_rest_api.fb_bot_api.id
   stage_name  = aws_api_gateway_stage.dev.stage_name
@@ -41,13 +40,6 @@ resource "aws_api_gateway_method_settings" "s" {
     metrics_enabled = true
     logging_level   = "INFO"
   }
-}
-
-# Stage dev
-resource "aws_api_gateway_stage" "dev" {
-  stage_name    = "dev"
-  rest_api_id   = aws_api_gateway_rest_api.fb_bot_api.id
-  deployment_id = aws_api_gateway_deployment.dev.id
 }
 
 # Deployment for stage dev
