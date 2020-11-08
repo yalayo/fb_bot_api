@@ -36,10 +36,10 @@ resource "aws_api_gateway_method_settings" "s" {
   stage_name  = aws_api_gateway_stage.prod.stage_name
   method_path = "${aws_api_gateway_resource.message.path_part}/${aws_api_gateway_method.get.http_method}"
 
-  settings {
-    metrics_enabled = true
-    logging_level   = "INFO"
-  }
+  #settings {
+  #  metrics_enabled = true
+  #  logging_level   = "INFO"
+  #}
 }
 
 # Deployment for stage dev
