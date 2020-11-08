@@ -33,7 +33,7 @@ resource "aws_api_gateway_method_response" "response_200" {
 
 resource "aws_api_gateway_method_settings" "s" {
   rest_api_id = aws_api_gateway_rest_api.fb_bot_api.id
-  stage_name  = aws_api_gateway_stage.dev.stage_name
+  stage_name  = "dev"
   method_path = "${aws_api_gateway_resource.message.path_part}/${aws_api_gateway_method.get.http_method}"
 
   settings {
