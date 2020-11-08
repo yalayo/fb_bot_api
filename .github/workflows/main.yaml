@@ -43,6 +43,7 @@ jobs:
         tf_actions_comment: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        AWS_REGION: 'us-east-1'
 
     - name: Terraform - Plan
       uses: hashicorp/terraform-github-actions@master
