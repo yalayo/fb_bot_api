@@ -14,20 +14,22 @@ jobs:
 
     - name: Terraform - Format
       uses: hashicorp/terraform-github-actions@master
+      working-directory: {{ env.WORKDIR }}
       with:
         tf_actions_version: 0.12.13
         tf_actions_subcommand: 'fmt'
-        tf_actions_working_dir: {{ env.WORKDIR }}
+        tf_actions_working_dir: '.'
         tf_actions_comment: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Terraform - Init
       uses: hashicorp/terraform-github-actions@master
+      working-directory: {{ env.WORKDIR }}
       with:
         tf_actions_version: 0.12.13
         tf_actions_subcommand: 'init'
-        tf_actions_working_dir: {{ env.WORKDIR }}
+        tf_actions_working_dir: '.'
         tf_actions_comment: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -36,10 +38,11 @@ jobs:
 
     - name: Terraform - Validate
       uses: hashicorp/terraform-github-actions@master
+      working-directory: {{ env.WORKDIR }}
       with:
         tf_actions_version: 0.12.13
         tf_actions_subcommand: 'validate'
-        tf_actions_working_dir: {{ env.WORKDIR }}
+        tf_actions_working_dir: '.'
         tf_actions_comment: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -47,10 +50,11 @@ jobs:
 
     - name: Terraform - Plan
       uses: hashicorp/terraform-github-actions@master
+      working-directory: {{ env.WORKDIR }}
       with:
         tf_actions_version: 0.12.13
         tf_actions_subcommand: 'apply'
-        tf_actions_working_dir: {{ env.WORKDIR }}
+        tf_actions_working_dir: '.'
         tf_actions_comment: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
