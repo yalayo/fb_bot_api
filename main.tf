@@ -23,6 +23,14 @@ resource "aws_api_gateway_method" "get" {
   authorization = "NONE"
 }
 
+# Method response 200
+resource "aws_api_gateway_method_response" "response_200" {
+  rest_api_id = aws_api_gateway_rest_api.fb_bot_api.id
+  resource_id = aws_api_gateway_resource.message.id
+  http_method = aws_api_gateway_method.get.http_method
+  status_code = "200"
+}
+
 
 resource "aws_api_gateway_method_settings" "s" {
   rest_api_id = aws_api_gateway_rest_api.fb_bot_api.id
